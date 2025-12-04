@@ -8,383 +8,130 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 
-  <!-- Base styles -->
+  <!-- Styles -->
   <style>
     :root {
       --bg: #ffffff;
       --text: #1f2937;
       --muted: #6b7280;
-      --primary: #0ea5e9;     /* sky blue */
-      --primary-dark: #0284c7;
-      --accent: #f97316;      /* orange for HOT badge */
+      --primary: #0ea5e9;
+      --accent: #f97316;
       --border: #e5e7eb;
       --card: #f9fafb;
       --success: #16a34a;
     }
+    body { margin:0; font-family: Inter, sans-serif; background: var(--bg); color: var(--text); }
+    a { text-decoration:none; color:inherit; }
+    img { max-width:100%; display:block; }
 
-    * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
+    header { border-bottom:1px solid var(--border); background:#fff; position:sticky; top:0; z-index:100; }
+    .container { max-width:1100px; margin:0 auto; padding:0 16px; }
+    .nav { display:flex; justify-content:space-between; align-items:center; padding:14px 0; }
+    .brand { display:flex; align-items:center; gap:10px; }
+    .brand img { height:40px; } /* Logo size */
+    .brand h1 { font-family:"Playfair Display", serif; margin:0; font-size:22px; }
+    .menu { display:flex; gap:18px; }
+    .cta { background:var(--primary); color:#fff; padding:8px 12px; border-radius:8px; font-weight:700; }
 
-    /* Header */
-    .topbar {
-      border-bottom: 1px solid var(--border);
-      background: #fff;
-    }
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 16px;
-    }
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 0;
-    }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .logo {
-      width: 36px; height: 36px; border-radius: 8px; background: linear-gradient(135deg, var(--primary), #7dd3fc);
-      display: grid; place-items: center; color: #fff; font-weight: 700;
-    }
-    .brand h1 {
-      font-family: "Playfair Display", serif;
-      font-size: 20px; margin: 0; letter-spacing: 0.2px;
-    }
-    .tagline { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .hero { padding:60px 0; background:linear-gradient(135deg,#0ea5e9,#0284c7); color:#fff; text-align:center; }
+    .hero h2 { margin:0 0 10px; font-size:32px; font-weight:800; }
+    .hero p { margin:0 0 16px; font-size:16px; }
 
-    .menu { display: flex; gap: 18px; align-items: center; }
-    .menu a { font-weight: 600; font-size: 14px; color: var(--text); }
-    .cta {
-      background: var(--primary);
-      color: #fff; padding: 10px 14px; border-radius: 8px; font-weight: 700; font-size: 14px;
-    }
-    .cta:hover { background: var(--primary-dark); }
+    .section { padding:40px 0; }
+    .section h3 { margin:0 0 12px; font-size:22px; font-weight:800; text-align:center; }
+    .section p { color:var(--muted); margin:0 0 20px; text-align:center; }
 
-    /* Hero */
-    .hero {
-      padding: 34px 0 24px;
-      border-bottom: 1px solid var(--border);
-      background: linear-gradient(180deg, #f0f9ff, #ffffff);
-    }
-    .hero-wrap {
-      display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px;
-    }
-    .hero h2 {
-      font-size: 28px; margin: 0 0 8px; font-weight: 800;
-    }
-    .hero p { color: var(--muted); font-size: 15px; margin: 0 0 16px; }
-    .hero .actions { display: flex; gap: 10px; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 10px 14px; border-radius: 10px; font-weight: 700; border: 1px solid var(--border);
-    }
-    .btn-primary { background: var(--primary); color: #fff; border: none; }
-    .btn-primary:hover { background: var(--primary-dark); }
-    .badge-local {
-      display: inline-block; background: #ecfeff; color: var(--primary-dark);
-      border: 1px dashed #7dd3fc; padding: 6px 10px; border-radius: 999px; font-size: 12px; font-weight: 700;
-    }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px; }
 
-    /* Section header */
-    .section {
-      padding: 26px 0;
-    }
-    .section h3 {
-      font-size: 20px; margin: 0 0 12px; font-weight: 800;
-    }
-    .section p { color: var(--muted); margin: 0 0 10px; }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:12px; overflow:hidden; display:flex; flex-direction:column; transition:transform 0.2s; }
+    .card:hover { transform:translateY(-5px); }
+    .thumb { position:relative; height:180px; display:grid; place-items:center; background:#fff; border-bottom:1px solid var(--border); }
+    .badge { position:absolute; top:10px; left:10px; background:var(--accent); color:#fff; padding:4px 8px; border-radius:999px; font-size:12px; font-weight:700; }
+    .content { padding:12px; display:grid; gap:8px; }
+    .title { font-weight:700; font-size:15px; }
+    .specs { font-size:13px; color:var(--muted); }
+    .price { font-weight:800; font-size:16px; }
+    .installment { font-size:12px; color:var(--success); background:#f0fdf4; border:1px solid #dcfce7; padding:4px 8px; border-radius:8px; font-weight:700; }
 
-    /* Product grid */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
-    @media (max-width: 1000px) {
-      .hero-wrap { grid-template-columns: 1fr; }
-      .grid { grid-template-columns: repeat(3, 1fr); }
-    }
-    @media (max-width: 720px) {
-      .grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 480px) {
-      .grid { grid-template-columns: 1fr; }
-    }
+    .infocard { border:1px dashed var(--border); border-radius:12px; padding:16px; background:#fff; text-align:center; }
+    footer { border-top:1px solid var(--border); padding:20px 0; font-size:13px; color:var(--muted); text-align:center; }
 
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
-      display: flex; flex-direction: column;
-      transition: box-shadow 0.2s ease, transform 0.2s ease;
-    }
-    .card:hover { box-shadow: 0 8px 20px rgba(2, 132, 199, 0.12); transform: translateY(-2px); }
-
-    .thumb {
-      position: relative;
-      background: #fff;
-      height: 180px;
-      display: grid; place-items: center;
-      border-bottom: 1px solid var(--border);
-    }
-    .badge {
-      position: absolute; top: 10px; left: 10px;
-      background: var(--accent); color: #fff; font-weight: 800; font-size: 12px;
-      padding: 6px 10px; border-radius: 999px;
-    }
-
-    .content { padding: 12px; display: grid; gap: 10px; }
-    .title { font-weight: 700; font-size: 15px; }
-    .specs { color: var(--muted); font-size: 13px; }
-    .price { font-weight: 800; font-size: 16px; }
-    .installment {
-      display: inline-block; font-size: 12px; color: var(--success);
-      background: #f0fdf4; border: 1px solid #dcfce7; padding: 6px 10px; border-radius: 8px; font-weight: 700;
-    }
-    .actions-row { display: flex; gap: 10px; }
-    .add { background: var(--text); color: #fff; border: none; }
-    .ghost { background: #fff; }
-
-    /* Info bar */
-    .infobar {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
-      margin: 18px 0 0;
-    }
-    .infocard {
-      border: 1px dashed var(--border); border-radius: 12px; padding: 12px; background: #fff;
-      display: grid; gap: 6px;
-    }
-    .infocard strong { font-size: 14px; }
-    .infocard span { color: var(--muted); font-size: 13px; }
-
-    /* Footer */
-    footer {
-      margin-top: 26px; padding: 20px 0; border-top: 1px solid var(--border);
-      color: var(--muted); font-size: 13px;
-    }
-
-    /* WhatsApp floating button */
+    /* Floating WhatsApp buttons */
     .whatsapp-float {
-      position: fixed; right: 16px; bottom: 16px; z-index: 50;
-      display: inline-flex; align-items: center; gap: 10px;
-      background: #25D366; color: #fff; padding: 12px 14px; border-radius: 999px; font-weight: 800;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      position:fixed; bottom:20px; right:20px;
+      background:#25D366; color:#fff; padding:12px 16px;
+      border-radius:50px; font-weight:700;
+      box-shadow:0 4px 6px rgba(0,0,0,0.2);
+      display:flex; align-items:center; gap:8px;
     }
-    .whatsapp-float:hover { filter: brightness(1.05); }
-    .wa-dot {
-      width: 10px; height: 10px; background: #22c55e; border-radius: 999px; box-shadow: 0 0 0 4px rgba(34,197,94,0.18);
-    }
+    .whatsapp-float.secondary { bottom:70px; background:#128C7E; }
   </style>
 </head>
-
 <body>
-  <!-- Topbar -->
-  <header class="topbar">
-    <div class="container">
-      <nav class="nav">
-        <div class="brand">
-          <div class="logo">IH</div>
-          <div>
-            <h1>Installment Hub</h1>
-            <div class="tagline">Shop on installments in Karachi — mobiles, accessories, and more</div>
-          </div>
-        </div>
-        <div class="menu">
-          <a href="#featured">Shop</a>
-          <a href="#plans">Installment plans</a>
-          <a href="#contact">Contact</a>
-          <a href="#terms">Terms</a>
-          <a class="cta" href="#featured">View deals</a>
-        </div>
-      </nav>
+
+  <!-- Header with Logo -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="images/logo.png" alt="Installment Hub Logo">
+        <h1>Installment Hub</h1>
+      </div>
+      <div class="menu">
+        <a href="#mobiles">Mobiles</a>
+        <a href="#accessories">Accessories</a>
+        <a href="#plans">Plans</a>
+        <a href="#contact">Contact</a>
+        <a class="cta" href="#mobiles">Shop Now</a>
+      </div>
     </div>
   </header>
 
   <!-- Hero -->
   <section class="hero">
-    <div class="container hero-wrap">
-      <div>
-        <span class="badge-local">Karachi-only delivery & installment verification</span>
-        <h2>Premium mobiles on easy monthly installments</h2>
-        <p>Flexible plans, verified products, and instant WhatsApp support. Pick your device, choose a plan, and get it delivered in Karachi.</p>
-        <div class="actions">
-          <a class="btn btn-primary" href="#featured">Browse featured</a>
-          <a class="btn" href="#plans">See monthly breakdown</a>
-        </div>
-      </div>
-      <div>
-        <div class="infobar">
-          <div class="infocard">
-            <strong>Same-day WhatsApp support</strong>
-            <span>Quick responses 11am–9pm</span>
+    <div class="container">
+      <h2>Premium Mobiles & Accessories on Easy Installments</h2>
+      <p>Choose your device, pick a plan, and enjoy hassle-free payments in Karachi.</p>
+    </div>
+  </section>
+
+  <!-- Mobiles Section -->
+  <section id="mobiles" class="section">
+    <div class="container">
+      <h3>Mobiles</h3>
+      <p>Top models available with flexible installment options.</p>
+      <div class="grid">
+        <!-- Product Card -->
+        <article class="card">
+          <div class="thumb">
+            <span class="badge">NEW</span>
+            <img src="images/mobile1.jpg" alt="Mobile image">
           </div>
-          <div class="infocard">
-            <strong>Authentic devices</strong>
-            <span>Warranty and sealed box options</span>
+          <div class="content">
+            <div class="title">Mobile Name — RAM / Storage</div>
+            <div class="specs">Specs here</div>
+            <div class="price">Rs XX,XXX</div>
+            <span class="installment">Rs X,XXX / month × 12</span>
           </div>
-          <div class="infocard">
-            <strong>Easy verification</strong>
-            <span>CNIC + address within Karachi</span>
-          </div>
-        </div>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- Featured Products -->
-  <section id="featured" class="section">
+  <!-- Accessories Section -->
+  <section id="accessories" class="section">
     <div class="container">
-      <h3>Featured products</h3>
-      <p>Top picks with installment-friendly pricing.</p>
-
+      <h3>Accessories</h3>
+      <p>Chargers, headphones, covers, and more.</p>
       <div class="grid">
-        <!-- Card 1 -->
         <article class="card">
           <div class="thumb">
-            <span class="badge">HOT</span>
-            <img src="https://via.placeholder.com/260x160?text=Vivo+Y21D" alt="Vivo Y21D image">
+            <img src="images/accessory1.jpg" alt="Accessory image">
           </div>
           <div class="content">
-            <div class="title">Vivo Y21D — 4GB / 128GB</div>
-            <div class="specs">Camera 13MP • Battery 5000mAh • Dual SIM</div>
-            <div class="price">Rs 40,000</div>
-            <span class="installment">Rs 3,600 / month × 12</span>
-            <div class="actions-row">
-              <a class="btn add" href="#contact">Add to cart</a>
-              <a class="btn ghost" href="#contact">WhatsApp inquiry</a>
-            </div>
-          </div>
-        </article>
-<!-- Accessories Section -->
-<section id="accessories" class="section">
-  <div class="container">
-    <h3>Accessories</h3>
-    <p>Chargers, headphones, covers, and more on easy installments.</p>
-    <div class="grid">
-      <!-- Accessory Card -->
-      <article class="card">
-        <div class="thumb">
-          <img src="images/accessory1.jpg" alt="Accessory image">
-        </div>
-        <div class="content">
-          <div class="title">Accessory Name</div>
-          <div class="specs">Specs or description</div>
-          <div class="price">Rs XX,XXX</div>
-          <span class="installment">Rs X,XXX / month × 6</span>
-        </div>
-      </article>
-
-      <!-- Duplicate for more accessories -->
-      <article class="card"><div class="thumb"><img src="images/accessory2.jpg" alt="Accessory image"></div><div class="content"><div class="title">Accessory Name</div><div class="price">Rs XX,XXX</div><span class="installment">Rs X,XXX / month × 6</span></div></article>
-    </div>
-  </div>
-</section>
-
-<!-- Mobile Models Section -->
-<section id="mobiles" class="section">
-  <div class="container">
-    <h3>Mobiles by Brand</h3>
-    <p>Browse models from popular brands.</p>
-    <div class="grid">
-      <!-- Samsung -->
-      <article class="card">
-        <div class="thumb">
-          <img src="images/samsung.jpg" alt="Samsung model">
-        </div>
-        <div class="content">
-          <div class="title">Samsung Model</div>
-          <div class="specs">Specs here</div>
-          <div class="price">Rs XX,XXX</div>
-          <span class="installment">Rs X,XXX / month × 9</span>
-        </div>
-      </article>
-
-      <!-- Vivo -->
-      <article class="card">
-        <div class="thumb">
-          <img src="images/vivo.jpg" alt="Vivo model">
-        </div>
-        <div class="content">
-          <div class="title">Vivo Model</div>
-          <div class="specs">Specs here</div>
-          <div class="price">Rs XX,XXX</div>
-          <span class="installment">Rs X,XXX / month × 12</span>
-        </div>
-      </article>
-
-      <!-- Infinix -->
-      <article class="card">
-        <div class="thumb">
-          <img src="images/infinix.jpg" alt="Infinix model">
-        </div>
-        <div class="content">
-          <div class="title">Infinix Model</div>
-          <div class="specs">Specs here</div>
-          <div class="price">Rs XX,XXX</div>
-          <span class="installment">Rs X,XXX / month × 6</span>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-        <!-- Card 2 -->
-        <article class="card">
-          <div class="thumb">
-            <span class="badge">HOT</span>
-            <img src="https://via.placeholder.com/260x160?text=Vivo+Y21D+6GB" alt="Vivo Y21D 6GB image">
-          </div>
-          <div class="content">
-            <div class="title">Vivo Y21D — 6GB / 128GB</div>
-            <div class="specs">Camera 13MP • Battery 5000mAh • Dual SIM</div>
-            <div class="price">Rs 44,000</div>
-            <span class="installment">Rs 3,960 / month × 12</span>
-            <div class="actions-row">
-              <a class="btn add" href="#contact">Add to cart</a>
-              <a class="btn ghost" href="#contact">WhatsApp inquiry</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 3 -->
-        <article class="card">
-          <div class="thumb">
-            <span class="badge">NEW</span>
-            <img src="https://via.placeholder.com/260x160?text=Vivo+X+Fold5" alt="Vivo X Fold5 image">
-          </div>
-          <div class="content">
-            <div class="title">Vivo X Fold5 — 16GB / 512GB</div>
-            <div class="specs">Foldable • Flagship camera • Snapdragon</div>
-            <div class="price">Rs 570,000</div>
-            <span class="installment">Rs 51,300 / month × 12</span>
-            <div class="actions-row">
-              <a class="btn add" href="#contact">Add to cart</a>
-              <a class="btn ghost" href="#contact">WhatsApp inquiry</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 4 -->
-        <article class="card">
-          <div class="thumb">
-            <span class="badge">HOT</span>
-            <img src="https://via.placeholder.com/260x160?text=Vivo+X200+FE" alt="Vivo X200 FE image">
-          </div>
-          <div class="content">
-            <div class="title">Vivo X200 FE — 12GB / 512GB</div>
-            <div class="specs">AMOLED • 120Hz • 5G</div>
-            <div class="price">Rs 220,000</div>
-            <span class="installment">Rs 19,800 / month × 12</span>
-            <div class="actions-row">
-              <a class="btn add" href="#contact">Add to cart</a>
-              <a class="btn ghost" href="#contact">WhatsApp inquiry</a>
-            </div>
+            <div class="title">Accessory Name</div>
+            <div class="specs">Details here</div>
+            <div class="price">Rs XX,XXX</div>
+            <span class="installment">Rs X,XXX / month × 6</span>
           </div>
         </article>
       </div>
@@ -394,59 +141,30 @@
   <!-- Installment Plans -->
   <section id="plans" class="section">
     <div class="container">
-      <h3>Installment plans</h3>
-      <p>Transparent monthly breakdown. Example on Rs 40,000 device.</p>
-      <div class="grid" style="grid-template-columns: repeat(3, 1fr);">
+      <h3>Installment Plans</h3>
+      <p>Transparent monthly breakdowns for your convenience.</p>
+      <div class="grid">
         <div class="infocard">
           <strong>6 months</strong>
-          <span>Rs 7,200 / month</span>
+          <span>Rs X,XXX / month</span>
+        </div>
+        <div class="infocard">
+          <strong>9 months</strong>
+          <span>Rs X,XXX / month</span>
         </div>
         <div class="infocard">
           <strong>12 months</strong>
-          <span>Rs 3,600 / month</span>
-        </div>
-        <div class="infocard">
-          <strong>18 months</strong>
-          <span>Rs 2,400 / month</span>
+          <span>Rs X,XXX / month</span>
         </div>
       </div>
-      <p style="margin-top:10px; font-size:12px; color: var(--muted);">Note: Final monthly amount may vary based on verification and model.</p>
     </div>
   </section>
 
   <!-- Contact -->
   <section id="contact" class="section">
     <div class="container">
-      <h3>Contact & support</h3>
-      <p>Message us for verification, stock, and delivery details.</p>
-      <div class="infobar">
-        <div class="infocard">
-          <strong>WhatsApp</strong>
-          <span>Click the floating button below for instant chat.</span>
-        </div>
-        <div class="infocard">
-          <strong>Delivery in Karachi</strong>
-          <span>Across major areas. Same/next-day on select items.</span>
-        </div>
-        <div class="infocard">
-          <strong>Timings</strong>
-          <span>11:00 AM – 9:00 PM (PKT)</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      © Installment Hub — Karachi. Terms & Conditions apply. All product names are trademarks of their respective owners.
-    </div>
-  </footer>
-
-  <!-- WhatsApp floating -->
-  <a class="whatsapp-float" href="https://wa.me/923218293571?text=Hi%20Installment%20Hub%2C%20I%27d%20like%20to%20inquire%20about%20a%20mobile%20on%20installments." target="_blank" rel="noopener">
-    <span class="wa-dot"></span>
-    Chat on WhatsApp
-  </a>
-</body>
-</html>
+      <h3>Contact Us</h3>
+      <p>Reach us instantly on WhatsApp for inquiries.</p>
+      <p>
+        <a href="https://wa.me/923218293571?text=Hi%20Installment%20Hub%2C%20I%20want%20to%20inquire%20about%20a%20product." target="_blank">Chat on WhatsApp (923218293571)</a><br>
+        <a href="https://wa.me/923008293571?text=Hi%20Install
