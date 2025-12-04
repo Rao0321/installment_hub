@@ -2,143 +2,217 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Installment Hub</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>Installment Hub - Latest Mobiles & Accessories</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body { margin: 0; font-family: 'Inter', sans-serif; background: #f9fafb; color: #1f2937; }
-    header { background: #fff; padding: 20px 40px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-    header img { height: 50px; }
-    nav a { margin-left: 20px; text-decoration: none; color: #1f2937; font-weight: 600; }
-    section { padding: 40px 20px; }
-    h2 { font-size: 28px; margin-bottom: 10px; }
-    .brand-section { margin-bottom: 40px; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-    .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.05); overflow: hidden; display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 180px; object-fit: cover; }
-    .card .content { padding: 16px; }
-    .card .title { font-weight: 700; margin-bottom: 8px; }
-    .card .specs { font-size: 14px; color: #6b7280; margin-bottom: 12px; }
-    .card .btn { background: #0ea5e9; color: white; padding: 8px 12px; border: none; border-radius: 6px; text-align: center; font-weight: 600; cursor: pointer; }
-    .accessories-section h3 { margin-top: 40px; }
-    footer { background: #1f2937; color: #f3f4f6; padding: 40px 20px; text-align: center; font-size: 14px; }
-    .whatsapp-button { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; padding: 12px 16px; border-radius: 50px; font-weight: 600; text-decoration: none; box-shadow: 0 4px 6px rgba(0,0,0,0.2); }
-    .whatsapp-button.secondary { bottom: 80px; background: #128C7E; }
+    /* Global Reset */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f4f6f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #0d47a1, #1976d2);
+      color: #fff;
+      text-align: center;
+      padding: 30px 20px;
+    }
+    header img {
+      height: 90px;
+      margin-bottom: 10px;
+    }
+    header h1 {
+      font-size: 28px;
+      margin-bottom: 5px;
+      letter-spacing: 1px;
+    }
+    header p {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    /* Navigation */
+    nav {
+      background: #222;
+      padding: 12px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 12px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #25D366;
+    }
+
+    /* Section Titles */
+    h2 {
+      margin: 40px 20px 20px;
+      font-size: 22px;
+      color: #0d47a1;
+      border-left: 5px solid #25D366;
+      padding-left: 10px;
+    }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+      padding: 0 20px 20px;
+    }
+    figure {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background: #fff;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    figure:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    figure img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    figcaption {
+      font-size: 14px;
+      color: #555;
+      margin-top: 8px;
+      font-weight: 500;
+    }
+    .installments {
+      font-size: 13px;
+      color: #333;
+      margin-top: 5px;
+      font-style: italic;
+    }
+
+    /* WhatsApp Button */
+    .whatsapp-btn {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 8px 14px;
+      background: #25D366;
+      color: #fff;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .whatsapp-btn:hover {
+      background: #1ebc5c;
+    }
+
+    /* Footer */
+    footer {
+      background: #0d47a1;
+      color: #fff;
+      text-align: center;
+      padding: 25px 15px;
+      margin-top: 40px;
+      font-size: 14px;
+    }
+    footer p {
+      margin: 5px 0;
+    }
+    .top-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 6px 12px;
+      background: #25D366;
+      color: #fff;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 12px;
+      transition: background 0.3s;
+    }
+    .top-btn:hover {
+      background: #1ebc5c;
+    }
   </style>
 </head>
 <body>
-  <header>
-    <img src="images/logo.png" alt="Installment Hub Logo">
-    <nav>
-      <a href="#samsung">Samsung</a>
-      <a href="#vivo">Vivo</a>
-      <a href="#infinix">Infinix</a>
-      <a href="#accessories">Accessories</a>
-    </nav>
+
+  <!-- Header -->
+  <header id="top">
+    <img src="/attachments/XTUcTvydTKAzmwZ5FaXi2.png" alt="Installment Hub Logo">
+    <h1>Installment Hub - Latest Mobiles & Accessories</h1>
+    <p>Technology on Installments</p>
   </header>
 
-  <section id="samsung" class="brand-section">
-    <h2>Samsung Mobiles</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="images/samsung1.jpg" alt="Samsung Mobile">
-        <div class="content">
-          <div class="title">Samsung Model Name</div>
-          <div class="specs">Specs here</div>
-          <button class="btn">View Installment Plans</button>
-        </div>
-      </div>
-      <!-- Add more Samsung cards -->
-    </div>
-  </section>
+  <!-- Navigation -->
+  <nav>
+    <a href="#iphone">iPhone</a>
+    <a href="#infinix">Infinix</a>
+    <a href="#vivo">Vivo</a>
+    <a href="#redmi">Redmi</a>
+    <a href="#samsung">Samsung</a>
+    <a href="#tecno">Tecno</a>
+    <a href="#accessories">Accessories</a>
+  </nav>
 
-  <section id="vivo" class="brand-section">
-    <h2>Vivo Mobiles</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="images/vivo1.jpg" alt="Vivo Mobile">
-        <div class="content">
-          <div class="title">Vivo Model Name</div>
-          <div class="specs">Specs here</div>
-          <button class="btn">View Installment Plans</button>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- iPhone -->
+  <h2 id="iphone">🍏 iPhone</h2>
+  <div class="gallery">
+    <figure>
+      <img src="https://www.apple.com/newsroom/images/product/iphone/standard/Apple-iPhone-16-Pro-lineup-hero-240909.jpg" alt="iPhone 16 Pro Max">
+      <figcaption>iPhone 16 Pro Max – 8GB RAM, 256GB/512GB/1TB</figcaption>
+      <div class="installments">Installments: 6, 9, 12 months</div>
+      <a class="whatsapp-btn" href="https://wa.me/923218293571">Order on WhatsApp</a>
+    </figure>
+    <figure>
+      <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-16-pro-blue" alt="iPhone 16 Pro">
+      <figcaption>iPhone 16 Pro – 8GB RAM, 128GB/256GB/512GB</figcaption>
+      <div class="installments">Installments: 6, 9, 12 months</div>
+      <a class="whatsapp-btn" href="https://wa.me/923008293571">Order on WhatsApp</a>
+    </figure>
+  </div>
 
-  <section id="infinix" class="brand-section">
-    <h2>Infinix Mobiles</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="images/infinix1.jpg" alt="Infinix Mobile">
-        <div class="content">
-          <div class="title">Infinix Model Name</div>
-          <div class="specs">Specs here</div>
-          <button class="btn">View Installment Plans</button>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Accessories -->
+  <h2 id="accessories">🎧 Accessories</h2>
+  <div class="gallery">
+    <figure>
+      <img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-airpods-pro-2.jpg" alt="AirPods Pro 2">
+      <figcaption>Apple AirPods Pro 2 – Wireless Earbuds</figcaption>
+      <a class="whatsapp-btn" href="https://wa.me/923218293571">Order on WhatsApp</a>
+    </figure>
+    <figure>
+      <img src="https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-watch6-1.jpg" alt="Samsung Galaxy Watch 6">
+      <figcaption>Samsung Galaxy Watch 6 – Smartwatch</figcaption>
+      <a class="whatsapp-btn" href="https://wa.me/923008293571">Order on WhatsApp</a>
+    </figure>
+    <figure>
+      <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-powerbank-1.jpg" alt="Xiaomi Power Bank">
+      <figcaption>Xiaomi Power Bank – 20,000mAh</figcaption>
+      <a class="whatsapp-btn" href="https://wa.me/923218293571">Order on WhatsApp</a>
+    </figure>
+  </div>
 
-  <section id="accessories" class="accessories-section">
-    <h2>Accessories</h2>
-    <h3>Headphones</h3>
-    <div class="grid">
-      <div class="card">
-        <img src="images/headphones.jpg" alt="Headphones">
-        <div class="content">
-          <div class="title">Headphone Name</div>
-          <div class="specs">Specs here</div>
-          <button class="btn">View Installment Plans</button>
-        </div>
-      </div>
-    </div>
-
-    <h3>Chargers</h3>
-    <div class="grid">
-      <div class="card">
-        <img src="images/charger.jpg" alt="Charger">
-        <div class="content">
-          <div class="title">Charger Name</div>
-          <div class="specs">Specs here</div>
-          <button class="btn">View Installment Plans</button>
-        </div>
-      </div>
-    </div>
-
-    <h3>Protectors</h3>
-    <div class="grid">
-      <div class="card">
-        <img src="images/protector.jpg" alt="Protector">
-        <div class="content">
-          <div class="title">Protector Name</div>
-          <div class="specs">Specs here</div>
-          <button class="btn">View Installment Plans</button>
-        </div>
-      </div>
-    </div>
-
-    <h3>Covers</h3>
-    <div class="grid">
-      <div class="card">
-        <img src="images/cover.jpg" alt="Cover">
-        <div class="content">
-          <div class="title">Cover Name</div>
-          <div class="specs">Specs here</div>
-          <button class="btn">View Installment Plans</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <a class="whatsapp-button" href="https://wa.me/923218293571" target="_blank">Chat on WhatsApp</a>
-  <a class="whatsapp-button secondary" href="https://wa.me/923008293571" target="_blank">Chat on WhatsApp</a>
-
+  <!-- Footer -->
   <footer>
-    <p><strong>Installment Hub — Karachi</strong></p>
-    <p>Technology on Installments. Trusted by hundreds of customers across the city.</p>
-    <p>Contact us for stock, verification, and delivery details. Timings: 11:00 AM – 9:00 PM (PKT)</p>
-    <p>© 2016 Installment Hub. All rights reserved. Terms & Conditions apply.</p>
+    <p>&copy; 2025 Installment Hub — Karachi, Pakistan</p>
+    <p>WhatsApp: 03218293571 • 03008293571</p>
+    <a class="top-btn" href="#top">Back to Top</a>
   </footer>
+
 </body>
 </html>
