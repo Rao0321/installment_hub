@@ -1,224 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Installment Hub - Latest Mobiles & Accessories</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Complete Web Page with Images</title> <style> body { font-family: Arial, sans-serif; margin: 20px; background-color: #f9f9f9; } h1, h2 { color: #333; } .image-gallery { display: flex; flex-wrap: wrap; gap: 20px; } .image-item { width: 200px; text-align: center; background: white; padding: 10px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); } .image-item img { max-width: 100%; border-radius: 5px; } .image-name { margin-top: 8px; font-weight: bold; color: #555; } .content-section { margin-top: 40px; } a { color: #0066cc; text-decoration: none; } a:hover { text-decoration: underline; } </style> </head> <body>
 
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: #f4f6f9;
-      color: #333;
-      line-height: 1.6;
-    }
+<h1>Welcome to Your Complete Web Page</h1>
 
-    header {
-      background: linear-gradient(135deg, #0d47a1, #1976d2);
-      color: #fff;
-      text-align: center;
-      padding: 30px 20px;
-    }
-    header img {
-      height: 90px;
-      margin-bottom: 10px;
-    }
-    header h1 {
-      font-size: 28px;
-      margin-bottom: 5px;
-      letter-spacing: 1px;
-    }
-    header p {
-      font-size: 14px;
-      opacity: 0.9;
-    }
+<section class="image-gallery">
+    <div class="image-item">
+        <img src="https://example.com/images/image1.jpg" alt="Image 1">
+        <div class="image-name">image1.jpg</div>
+    </div>
+    <div class="image-item">
+        <img src="https://example.com/images/image2.jpg" alt="Image 2">
+        <div class="image-name">image2.jpg</div>
+    </div>
+    <div class="image-item">
+        <img src="https://example.com/images/image3.jpg" alt="Image 3">
+        <div class="image-name">image3.jpg</div>
+    </div>
+</section>
 
-    nav {
-      background: #222;
-      padding: 12px;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    nav a {
-      color: #fff;
-      margin: 0 12px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 14px;
-      transition: color 0.3s;
-    }
-    nav a:hover {
-      color: #25D366;
-    }
-
-    h2 {
-      margin: 40px 20px 20px;
-      font-size: 22px;
-      color: #0d47a1;
-      border-left: 5px solid #25D366;
-      padding-left: 10px;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 20px;
-      padding: 0 20px 20px;
-    }
-    figure {
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      background: #fff;
-      padding: 15px;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    figure:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    figure img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      margin-bottom: 10px;
-    }
-    figcaption {
-      font-size: 14px;
-      color: #555;
-      margin-top: 8px;
-      font-weight: 500;
-    }
-    .installments {
-      font-size: 13px;
-      color: #333;
-      margin-top: 5px;
-      font-style: italic;
-    }
-
-    .whatsapp-btn {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 8px 14px;
-      background: #25D366;
-      color: #fff;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-    .whatsapp-btn:hover {
-      background: #1ebc5c;
-    }
-
-    footer {
-      background: #0d47a1;
-      color: #fff;
-      text-align: center;
-      padding: 25px 15px;
-      margin-top: 40px;
-      font-size: 14px;
-    }
-    footer p {
-      margin: 5px 0;
-    }
-    .top-btn {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 6px 12px;
-      background: #25D366;
-      color: #fff;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 12px;
-      transition: background 0.3s;
-    }
-    .top-btn:hover {
-      background: #1ebc5c;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Header -->
-  <header id="top">
-    <img src="/attachments/XTUcTvydTKAzmwZ5FaXi2.png" alt="Installment Hub Logo">
-    <h1>Installment Hub - Latest Mobiles & Accessories</h1>
-    <p>Technology on Installments</p>
-  </header>
-
-  <!-- Navigation -->
-  <nav>
-    <a href="#mobiles">Mobiles</a>
-    <a href="#laptops">Laptops</a>
-    <a href="#installment">Installment Procedure</a>
-    <a href="#contact">Contact Us</a>
-    <a href="#about">About Us</a>
-  </nav>
-
-  <!-- Mobiles -->
-  <h2 id="mobiles">📱 Mobiles</h2>
-  <p style="padding:0 20px;">Browse our latest mobile phones available on easy installments.</p>
-
-  <!-- iPhone -->
-  <h2>🍏 iPhone</h2>
-  <div class="gallery">
-    <figure>
-      <img src="images/iphone16pro.jpg" alt="iPhone 16 Pro Max">
-      <figcaption>iPhone 16 Pro Max – 8GB RAM, 256GB/512GB/1TB</figcaption>
-      <div class="installments">Installments: 6, 9, 12 months</div>
-      <a class="whatsapp-btn" href="https://wa.me/923218293571">Order on WhatsApp</a>
-    </figure>
-    <figure>
-      <img src="images/iphone16.jpg" alt="iPhone 16 Pro">
-      <figcaption>iPhone 16 Pro – 8GB RAM, 128GB/256GB/512GB</figcaption>
-      <div class="installments">Installments: 6, 9, 12 months</div>
-      <a class="whatsapp-btn" href="https://wa.me/923008293571">Order on WhatsApp</a>
-    </figure>
-  </div>
-
-  <!-- Infinix -->
-  <h2>🔥 Infinix</h2>
-  <div class="gallery">
-    <figure>
-      <img src="images/infinixHot40pro.jpg" alt="Infinix Hot 40 Pro">
-      <figcaption>Hot 40 Pro – 8GB/12GB RAM, 128GB/256GB</figcaption>
-      <div class="installments">Installments: 6, 9, 12 months</div>
-      <a class="whatsapp-btn" href="https://wa.me/923218293571">Order on WhatsApp</a>
-    </figure>
-    <figure>
-      <img src="images/infinixHot40.jpg" alt="Infinix Hot 40">
-      <figcaption>Hot 40 – 8GB RAM, 128GB</figcaption>
-      <div class="installments">Installments: 6, 9, 12 months</div>
-      <a class="whatsapp-btn" href="https://wa.me/923008293571">Order on WhatsApp</a>
-    </figure>
-  </div>
-
-  <!-- Vivo -->
-  <h2>🌈 Vivo</h2>
-  <div class="gallery">
-    <figure>
-      <img src="images/vivoV29.jpg" alt="Vivo V29">
-      <figcaption>Vivo V29 – 8GB/12GB RAM, 128GB/256GB/512GB</figcaption>
-      <div class="installments">Installments: 6, 9, 12 months</div>
-      <a class="whatsapp-btn" href="https://wa.me/923218293571">Order on WhatsApp</a>
-    </figure>
-    <figure>
-      <img src="images/vivoV29pro.jpg" alt="Vivo V29 Pro">
-      <figcaption>Vivo V29 Pro – 12GB RAM, 256GB</figcaption>
-      <div class="installments">Installments: 6, 9, 12 months</div>
-      <a class="whatsapp-btn" href="https://wa.me/923008293571">Order on WhatsApp</a>
-    </figure>
-  </div>
-
-  <!-- Redmi -->
-  <h2>📸 Redmi</h2>
-  <div class="gallery">
-    <figure>
-      <img src="images/redmiNote13pro.jpg" alt="Redmi Note 13 Pro">
-      <figcaption>Note 13 Pro – 8GB–16GB RAM, 128GB
+<section class="content-section">
+    <h2>Additional Web Content</h2>
+    <p>This section can be used to add more text, links, or other elements as needed for your website.</p>
+    <p>For example, you can include navigation menus, product descriptions, contact information, or any other content relevant to your project.</p>
+    <p>Feel free to customize this page further to suit your needs.</p>
+</section>
